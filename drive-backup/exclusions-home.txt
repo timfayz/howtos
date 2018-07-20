@@ -1,0 +1,8 @@
+Archive
+.local/share/Trash
+.mozilla/firefox/*default
+.cache
+.gradle
+.dropbox*
+
+
