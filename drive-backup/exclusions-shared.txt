@@ -1,8 +1,4 @@
-Videos
-Music
-Dropbox
 System Volume Information
-Downloads/Distributions
 .Trash*
 $RECYCLE.BIN
 *desktop.ini
