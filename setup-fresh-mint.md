@@ -1,37 +1,34 @@
 # Linux Mint Setup
 
-## Packages
+## Toolbox
 ```
-apt upgrade
+    apt upgrade
 ```
-
-### Tools
 * git
+* htop, iotop
 * dconf-editor
 * xclip (for tmux clipboard)
 * djview4
 * build-essentials
 * neovim:
 ```
-# install Plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    # install Plug
+    curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 * python:
 ```
-apt install python-pip python-setuptools python-whee
-apt install python3-pip python3-setuptools python3-wheel
+    apt install python-pip python-setuptools python-whee
+    apt install python3-pip python3-setuptools python3-wheel
 ```
 * clang-format (for vscode formatter)
-* LaTeX:
+* textlive (latex):
 ```
-sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-bibtex-extra texlive bibel
+    sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-bibtex-extra texlive bibel
 ```
-
-### Apps
 * vscode (external):
 ```
-see https://code.visualstudio.com/docs/setup/linux
+    see https://code.visualstudio.com/docs/setup/linux
 ```
    - Sync `settings.json` from git
    - Set python path to `python3`
