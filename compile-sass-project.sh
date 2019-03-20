@@ -1,15 +1,18 @@
-0. Prepare env
+#!/bin/bash
+exit
+
+# Prepare env
 install nodejs sass
 npm i -D postcss-cli autoprefixer
 
-1. Complie CSS
+# Complie CSS
 sass --watch --no-source-map main.scss main.css
 
-2. Autoprefix
+# Autoprefix
 npx postcss main.css --use autoprefixer --replace [-d build/]
 
-3. Minify
+# Minify
 ?
 
-* Run server
+# Run server
 python -m SimpleHTTPServer 8000 &>/dev/null &

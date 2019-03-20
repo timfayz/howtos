@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Prepare python packages
 # sudo xbps-install -S wxWidgets-devel wxPython-devel python-devel glew-devel cairo-devel glm libcurl-devel boost-devel oce-devel swig
 # ? libgomp-devel
 

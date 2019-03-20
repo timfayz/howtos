@@ -1,10 +1,13 @@
-# Setup Fresh Linux Mint
+# How to configure Linux Mint 
 
-## Toolbox
+Personal notes how to configure clean Linux Mint installation to the point of my daily needs. <br>Other files contains bash sketches on particular tasks.
+
+## Installation
 ```bash
+# update repositories and pre-installed packages
 sudo apt upgrade
 
-# basics
+# basic tools
 sudo apt install \
 git \
 htop iotop \
@@ -25,6 +28,14 @@ sudo apt install python3-pip python3-setuptools python3-wheel # v3
 # LaTeX
 sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-bibtex-extra texlive bibel
 
+# LibreOffice
+sudo apt-get install libreoffice-style-sifr
+# then Tools -> Options... -> View -> Icon theme -> sifr
+
+# PDF
+sudo apt install evince
+sudo apt install pdfshuffler  
+sudo apt install xournal # drawing without messing with text layer
 
 # vscode (external)
 # See https://code.visualstudio.com/docs/setup/linux
@@ -34,7 +45,7 @@ sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra 
 # vscode C/C++ formatter
 sudo apt install clang-format
 
-# apps
+# popular apps
 sudo apt install \
 telegram-desktop \
 dropbox \
@@ -42,7 +53,7 @@ playonlinux \
 vlc
 ```
 
-## Configuration
+## System configuration
 * Nemo ->
 	- View -> [] Show toolbar
     - Prefs -> Views ->
