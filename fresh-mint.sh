@@ -1,4 +1,4 @@
-exit 
+exit
 
 # Update repos and upgrade
 sudo apt upgrade
@@ -11,7 +11,8 @@ dconf-editor \
 xclip \
 djview4 \
 build-essential \
-neovim
+neovim \
+alacarte viewnior \
 
 # Vim's Plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -31,7 +32,7 @@ sudo apt-get install libreoffice-style-sifr
 # PDF
 sudo apt install evince pdfshuffler xournal
 
-# vscode 
+# vscode
 # - https://code.visualstudio.com/download
 # - sync `settings.json` from git
 # - set python path to `python3`
@@ -45,6 +46,13 @@ telegram-desktop \
 dropbox \
 playonlinux \
 vlc
+
+# Skype
+wget https://repo.skype.com/latest/skypeforlinux-64.deb
+sudo dpkg -i skypeforlinux-64.deb
+sudo apt install -f
+
+
 
 # System configuration
 # Nemo
@@ -103,7 +111,10 @@ sudo apt purge btrfs-progs btrfs-tools
 sudo update-initramfs -ukall (optional)
 
 # Change Wi-Fi driver
-sudo apt-get install firmware-b43-installer
+# (do not work) sudo apt install firmware-b43-installer
+sudo apt install bcmwl-kernel-source
+sudo modprobe -r b43 ssb wl
+sudo modprobe wl # check which driver in use lspci -k
 # - Activate experimental support for some hardware revisions
 vim /etc/modprobe.d/local-b43.conf
 # options b43 allhwsupport=1
