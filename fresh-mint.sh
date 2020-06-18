@@ -20,6 +20,13 @@ sudo apt install breeze # icons and theme
 qt5ct --platformtheme qt5ct
 
 
+# peek screen recorder
+# ============================
+sudo add-apt-repository ppa:peek-developers/stable
+sudo apt update
+sudo apt install peek
+
+
 # Vim's Plug
 # ============================
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
@@ -80,27 +87,46 @@ tlmgr install \
     collection-fontsrecommended \
         # cm-super \ # cyrillic support (T1 encoding)
     # collection-binextra \
+        latexindent \ 
         latexmk \
         texliveonfly \ # resolve deps automagically
     # collection-pictures \
+        gincltex \
         pgfplots \
     # collection-latexextra \
+        soul \ # highlight
+        layouts \ # prints \currentpage \pagedesign
+        silence \
+        filecontents \
+        collcell \
+        bold-extra \ # ???
+        makecell \ 
+        preview \ # support for preview mode (standalone)
+        footmisc \ # remove identation for footnotes
+        threeparttable \ # footnotes in tables
+        appendix \ # prepend Appendix word
         lipsum \
         needspace \
         mdframed \
-        multirow \ # to create cells spanning multiple rows
+        multirow \ # create cells spanning multiple rows
     # collection-bibtexextra \
         biblatex biber \ # modern bibliography engine + backend
         texdoc \
     # collection-fontsextra \
+        sourcecodepro \
+        paratype \
+        ascii-font \
+        bbding \
         ebgaramond \ # favorite serif font
         mathdesign \ # favorite math + normal text font
         ly1 \ # resolve missing texnansi.enc
     # collection-langcyrillic \
         babel-russian \ # russian support
     # acmart deps
-        xstring generic totpages environ trimspaces ncctools comment
+        xstring generic totpages environ trimspaces ncctools comment preprint
     # lshort-vietnamese lshort-persian eskdx lshort-mongol lshort-slovenian lshort-estonian lshort-czech
+    # ? 
+        svn-prov adjustbox collectbox
 
 # urw-garamond (math font) installation
 https://tex.stackexchange.com/a/20068/137390
