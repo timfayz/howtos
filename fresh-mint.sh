@@ -11,27 +11,24 @@ xclip \
 build-essential \
 neovim \
 alacarte \ # menu editor
-viewnior \ # image viewver
 
-
-# Qt5 apps appearence
+# Apps
 # ============================
-sudo apt install breeze # icons and theme
-qt5ct --platformtheme qt5ct
+sudo apt install telegram-desktop vlc # telegram and video
+# pdf/epub/djvu
+sudo apt install djview4 pdfshuffler xournal okular okular-extra-backends # oxygen-icon-theme
+sudo apt install viewnior # image viewver
 
-
-# peek screen recorder
+# Skype
 # ============================
-sudo add-apt-repository ppa:peek-developers/stable
-sudo apt update
-sudo apt install peek
-
+wget https://repo.skype.com/latest/skypeforlinux-64.deb
+sudo dpkg -i skypeforlinux-64.deb
+sudo apt install -f
 
 # Vim's Plug
 # ============================
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
 
 # Python
 # ============================
@@ -46,26 +43,14 @@ source ~/.bashrc
 pip install --upgrade pip
 pip install virtualenv
 
-
-# Android
-# ============================
-sudo apt install android-tools-adb android-tools-fastboot
-
-
-# Java
-# ============================
-sudo apt install default-jdk maven openjdk-X-source
-# (manual) https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-18-04/
-# (manual) https://linuxize.com/post/how-to-install-tomcat-9-on-ubuntu-18-04/
-
-
 # Yandex disk
 # ============================
 echo "deb http://repo.yandex.ru/yandex-disk/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/yandex-disk.list > /dev/null && wget http://repo.yandex.ru/yandex-disk/YANDEX-DISK-KEY.GPG -O- | sudo apt-key add - && sudo apt-get update && sudo apt-get install -y yandex-disk
 
-
 # LaTeX
 # ============================
+# how to remove and install
+https://www.tug.org/texlive/quickinstall.html
 # sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-bibtex-extra texlive latexmk
 sudo apt install perl-tk tk
 wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz # last version of texlive (tl)
@@ -75,67 +60,12 @@ sudo ./install-tl -gui # run gui prompt
 sudo apt purge biber # remove local (old) version
 # choose minimal-scheme (installs collection-basic), a4, create symlinks
 tlmgr update --self
-tlmgr install \
-    collection-basic \
-        # luatex \
-    collection-latex \
-    collection-latexrecommended \
-        # fontspec \
-    collection-luatex \
-        # luaotfload \
-        # lualatex-math \
-    collection-fontsrecommended \
-        # cm-super \ # cyrillic support (T1 encoding)
-    # collection-binextra \
-        latexindent \ 
-        latexmk \
-        texliveonfly \ # resolve deps automagically
-    # collection-pictures \
-        gincltex \
-        pgfplots \
-    # collection-latexextra \
-        soul \ # highlight
-        layouts \ # prints \currentpage \pagedesign
-        silence \
-        filecontents \
-        collcell \
-        bold-extra \ # ???
-        makecell \ 
-        preview \ # support for preview mode (standalone)
-        footmisc \ # remove identation for footnotes
-        threeparttable \ # footnotes in tables
-        appendix \ # prepend Appendix word
-        lipsum \
-        needspace \
-        mdframed \
-        multirow \ # create cells spanning multiple rows
-    # collection-bibtexextra \
-        biblatex biber \ # modern bibliography engine + backend
-        texdoc \
-    # collection-fontsextra \
-        sourcecodepro \
-        paratype \
-        ascii-font \
-        bbding \
-        ebgaramond \ # favorite serif font
-        mathdesign \ # favorite math + normal text font
-        ly1 \ # resolve missing texnansi.enc
-    # collection-langcyrillic \
-        babel-russian \ # russian support
-    # acmart deps
-        xstring generic totpages environ trimspaces ncctools comment preprint
-    # lshort-vietnamese lshort-persian eskdx lshort-mongol lshort-slovenian lshort-estonian lshort-czech
-    # ? 
-        svn-prov adjustbox collectbox
-
-# urw-garamond (math font) installation
-https://tex.stackexchange.com/a/20068/137390
-# also see getnonfreefonts installtion
-sudo su -p
-getnonfreefonts --sys garamond
 
 # resolve package dependencies automatically
 texliveonfly -c lualatex main.tex
+
+# to dump installed packages
+tlmgr list --only-installed > installed_texlive_packages.txt
 
 # useful commands to remember
 tlmgr update --all
@@ -146,18 +76,27 @@ tlmgr info collections | schemes # list collections and schemes
 tlmgr info --data depends pkg # list dependencies of pkg
 tlmgr info file.sty
 
+# urw-garamond (math font) installation
+https://tex.stackexchange.com/a/20068/137390
+# also see getnonfreefonts installtion
+sudo su -p
+getnonfreefonts --sys garamond
 
 # LibreOffice
 # ============================
 sudo apt-get install libreoffice-style-sifr
 # then Tools -> Options... -> View -> Icon theme -> sifr
 
-
-# PDF/Epub/Djvu
+# Qt5 apps appearence
 # ============================
-# okular for annotation and its missing icons
-sudo apt install djview4 pdfshuffler xournal okular okular-extra-backends # oxygen-icon-theme
+sudo apt install breeze # icons and theme
+qt5ct --platformtheme qt5ct
 
+# Screen recorder
+# ============================
+sudo add-apt-repository ppa:peek-developers/stable
+sudo apt update
+sudo apt install peek
 
 # VSCode
 # ============================
@@ -167,22 +106,6 @@ sudo apt install djview4 pdfshuffler xournal okular okular-extra-backends # oxyg
 sudo dpkg -i code_xxx.deb
 sudo apt-get install -f
 sudo apt install clang-format lldb
-
-
-# Apps
-# ============================
-sudo apt install \
-telegram-desktop \
-playonlinux \
-vlc
-
-
-# Skype
-# ============================
-wget https://repo.skype.com/latest/skypeforlinux-64.deb
-sudo dpkg -i skypeforlinux-64.deb
-sudo apt install -f
-
 
 # Change Wi-Fi driver
 # ============================
@@ -197,12 +120,20 @@ vim /etc/modprobe.d/local-b43.conf
 sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
 # wifi.powersave = 2 -> 3
 
-
 # Touchpad
 # ============================
 sudo apt isntall xserver-xorg-input-synaptics xserver-xorg-input-evdev
 sudo apt --purge xserver-xorg-input-libinput
 
+# Android
+# ============================
+sudo apt install android-tools-adb android-tools-fastboot
+
+# Java
+# ============================
+sudo apt install default-jdk maven openjdk-X-source
+# (manual) https://linuxize.com/post/how-to-install-apache-maven-on-ubuntu-18-04/
+# (manual) https://linuxize.com/post/how-to-install-tomcat-9-on-ubuntu-18-04/
 
 # System configuration
 # ============================
